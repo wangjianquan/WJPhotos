@@ -15,7 +15,6 @@
 		7D0D509C207DC93900F8E4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D508F207DC93800F8E4EE /* Assets.xcassets */; };
 		7D0D50A4207DC9C700F8E4EE /* WJPhotosTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D509F207DC9C700F8E4EE /* WJPhotosTool.swift */; };
 		7D0D50A5207DC9C700F8E4EE /* WJAssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D50A1207DC9C700F8E4EE /* WJAssetGridViewController.swift */; };
-		7D0D50A6207DC9C700F8E4EE /* WJPhotos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D50A2207DC9C700F8E4EE /* WJPhotos.storyboard */; };
 		7D0D50A7207DC9C700F8E4EE /* WJPhotosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D50A3207DC9C700F8E4EE /* WJPhotosList.swift */; };
 		7D0D50A9207DCA0900F8E4EE /* WJImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D50A8207DCA0900F8E4EE /* WJImage.xcassets */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		7D0D508F207DC93800F8E4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D0D509F207DC9C700F8E4EE /* WJPhotosTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJPhotosTool.swift; sourceTree = "<group>"; };
 		7D0D50A1207DC9C700F8E4EE /* WJAssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJAssetGridViewController.swift; sourceTree = "<group>"; };
-		7D0D50A2207DC9C700F8E4EE /* WJPhotos.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WJPhotos.storyboard; sourceTree = "<group>"; };
 		7D0D50A3207DC9C700F8E4EE /* WJPhotosList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJPhotosList.swift; sourceTree = "<group>"; };
 		7D0D50A8207DCA0900F8E4EE /* WJImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WJImage.xcassets; sourceTree = "<group>"; };
 		7DA35ED1207B00E200E58429 /* WJPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,7 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				7D0D50A8207DCA0900F8E4EE /* WJImage.xcassets */,
-				7D0D50A2207DC9C700F8E4EE /* WJPhotos.storyboard */,
 				7D0D50A1207DC9C700F8E4EE /* WJAssetGridViewController.swift */,
 				7D0D50A3207DC9C700F8E4EE /* WJPhotosList.swift */,
 				7D0D509F207DC9C700F8E4EE /* WJPhotosTool.swift */,
@@ -150,7 +147,6 @@
 				7D0D50A9207DCA0900F8E4EE /* WJImage.xcassets in Resources */,
 				7D0D5099207DC93900F8E4EE /* Main.storyboard in Resources */,
 				7D0D509A207DC93900F8E4EE /* LaunchScreen.storyboard in Resources */,
-				7D0D50A6207DC9C700F8E4EE /* WJPhotos.storyboard in Resources */,
 				7D0D509C207DC93900F8E4EE /* Assets.xcassets in Resources */,
 				7D0D5093207DC93900F8E4EE /* Info.plist in Resources */,
 			);
