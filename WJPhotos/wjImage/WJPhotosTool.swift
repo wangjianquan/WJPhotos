@@ -45,41 +45,26 @@ class WJPhotosTool: NSObject {
     
     //MARK: -- 智能相册列表
     public func fetchAllSystemAblum() -> [WJImageAlbumItem] {
-        let fetchOptions: PHFetchOptions = requestPHFetchOptions(MediaType.image)
-        
         let smartAlbums:PHFetchResult = PHAssetCollection.fetchAssetCollections(with: .smartAlbum, subtype: .albumRegular, options: nil)
-        //smartAlbums中保存的是各个智能相册对应的PHAssetCollection
-        for i in 0..<smartAlbums.count {
-            //获取一个相册(PHAssetCollection)
-            let collection = smartAlbums[i]
-            if collection.isKind(of: PHAssetCollection.classForCoder()) {
-                //赋值
-                let assetCollection = collection
-                //从每一个智能相册获取到的PHFetchResult中包含的才是真正的资源(PHAsset)
-                let assetsFetchResults:PHFetchResult = PHAsset.fetchAssets(in: assetCollection, options: fetchOptions)
-                assetsFetchResults.enumerateObjects({ (asset, i, nil) in })
-                if assetsFetchResults.count > 0 {
-                    items.append(WJImageAlbumItem(title: assetCollection.localizedTitle, fetchResult: assetsFetchResults))
-                }
-            }
-        }
-        return items
+        return convertCollection(assetCollection: smartAlbums)
     }
     
     //MARK: -- 用户创建的相册
     public func fetchAllUserCreatedAlbum() -> [WJImageAlbumItem] {
+        let topLevelUserCollections:PHFetchResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
+        return convertCollection(assetCollection: topLevelUserCollections as! PHFetchResult<PHAssetCollection>)
+    }
+    //转化处理获取到的相簿
+    public func convertCollection(assetCollection:PHFetchResult<PHAssetCollection>) -> [WJImageAlbumItem] {
         let fetchOptions: PHFetchOptions = requestPHFetchOptions(MediaType.image)
         
-        let topLevelUserCollections:PHFetchResult = PHCollectionList.fetchTopLevelUserCollections(with: nil)
-        for i in 0...topLevelUserCollections.count {
-            //获取一个相册(PHAssetCollection)
-            let collection = topLevelUserCollections[i]
+        for i in 0..<assetCollection.count{
+            let collection = assetCollection[i]
             if collection.isKind(of: PHAssetCollection.classForCoder()) {
-                //类型强制转换
-                let assetCollection = collection as! PHAssetCollection
-                //从每一个智能相册中获取到的PHFetchResult中包含的才是真正的资源(PHAsset)
-                let assetsFetchResults:PHFetchResult = PHAsset.fetchAssets(in: assetCollection, options: fetchOptions)
-                assetsFetchResults.enumerateObjects({ (asset, i, nil) in })
+                //赋值
+                let assetCollection = collection
+                //从每一个智能相册获取到的PHFetchResult中包含的才是真正的资源(PHAsset)
+                let assetsFetchResults = requestFetchAssets(assetCollection, fetchOptions)
                 if assetsFetchResults.count > 0 {
                     items.append(WJImageAlbumItem(title: assetCollection.localizedTitle, fetchResult: assetsFetchResults))
                 }
@@ -87,7 +72,14 @@ class WJPhotosTool: NSObject {
         }
         return items
     }
+
     
+    
+    
+    public func requestFetchAssets(_ assetCollection: PHAssetCollection, _ options: PHFetchOptions?) -> PHFetchResult<PHAsset> {
+        let assetsFetchResults:PHFetchResult = PHAsset.fetchAssets(in: assetCollection, options: options)
+        return assetsFetchResults
+    }
    
     //MARK: -- 筛选条件
     public func requestPHFetchOptions(_ mediaType: MediaType?) -> PHFetchOptions {

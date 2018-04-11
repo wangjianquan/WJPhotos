@@ -7,27 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7DA35ED5207B00E200E58429 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA35ED4207B00E200E58429 /* AppDelegate.swift */; };
-		7DA35ED7207B00E200E58429 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA35ED6207B00E200E58429 /* ViewController.swift */; };
-		7DA35EDA207B00E200E58429 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA35ED8207B00E200E58429 /* Main.storyboard */; };
-		7DA35EDC207B00E400E58429 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DA35EDB207B00E400E58429 /* Assets.xcassets */; };
-		7DA35EDF207B00E400E58429 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA35EDD207B00E400E58429 /* LaunchScreen.storyboard */; };
-		7DA35EE7207B784900E58429 /* WJPhotosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA35EE6207B784900E58429 /* WJPhotosList.swift */; };
-		7DA35EE9207B786300E58429 /* WJPhotos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DA35EE8207B786300E58429 /* WJPhotos.storyboard */; };
-		7DA35EEB207B93B700E58429 /* WJPhotosTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA35EEA207B93B700E58429 /* WJPhotosTool.swift */; };
+		7D0D5093207DC93900F8E4EE /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D5086207DC93800F8E4EE /* Info.plist */; };
+		7D0D5098207DC93900F8E4EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D508B207DC93800F8E4EE /* ViewController.swift */; };
+		7D0D5099207DC93900F8E4EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D508C207DC93800F8E4EE /* Main.storyboard */; };
+		7D0D509A207DC93900F8E4EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D508D207DC93800F8E4EE /* LaunchScreen.storyboard */; };
+		7D0D509B207DC93900F8E4EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D508E207DC93800F8E4EE /* AppDelegate.swift */; };
+		7D0D509C207DC93900F8E4EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D508F207DC93800F8E4EE /* Assets.xcassets */; };
+		7D0D50A4207DC9C700F8E4EE /* WJPhotosTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D509F207DC9C700F8E4EE /* WJPhotosTool.swift */; };
+		7D0D50A5207DC9C700F8E4EE /* WJAssetGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D50A1207DC9C700F8E4EE /* WJAssetGridViewController.swift */; };
+		7D0D50A6207DC9C700F8E4EE /* WJPhotos.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D50A2207DC9C700F8E4EE /* WJPhotos.storyboard */; };
+		7D0D50A7207DC9C700F8E4EE /* WJPhotosList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0D50A3207DC9C700F8E4EE /* WJPhotosList.swift */; };
+		7D0D50A9207DCA0900F8E4EE /* WJImage.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D0D50A8207DCA0900F8E4EE /* WJImage.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D0D5086207DC93800F8E4EE /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D0D508B207DC93800F8E4EE /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7D0D508C207DC93800F8E4EE /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		7D0D508D207DC93800F8E4EE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D0D508E207DC93800F8E4EE /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7D0D508F207DC93800F8E4EE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D0D509F207DC9C700F8E4EE /* WJPhotosTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJPhotosTool.swift; sourceTree = "<group>"; };
+		7D0D50A1207DC9C700F8E4EE /* WJAssetGridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJAssetGridViewController.swift; sourceTree = "<group>"; };
+		7D0D50A2207DC9C700F8E4EE /* WJPhotos.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = WJPhotos.storyboard; sourceTree = "<group>"; };
+		7D0D50A3207DC9C700F8E4EE /* WJPhotosList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WJPhotosList.swift; sourceTree = "<group>"; };
+		7D0D50A8207DCA0900F8E4EE /* WJImage.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = WJImage.xcassets; sourceTree = "<group>"; };
 		7DA35ED1207B00E200E58429 /* WJPhotos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WJPhotos.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7DA35ED4207B00E200E58429 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7DA35ED6207B00E200E58429 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7DA35ED9207B00E200E58429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7DA35EDB207B00E400E58429 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7DA35EDE207B00E400E58429 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7DA35EE0207B00E400E58429 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7DA35EE6207B784900E58429 /* WJPhotosList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJPhotosList.swift; sourceTree = "<group>"; };
-		7DA35EE8207B786300E58429 /* WJPhotos.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WJPhotos.storyboard; sourceTree = "<group>"; };
-		7DA35EEA207B93B700E58429 /* WJPhotosTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WJPhotosTool.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +46,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D0D509E207DC96300F8E4EE /* wjImage */ = {
+			isa = PBXGroup;
+			children = (
+				7D0D50A8207DCA0900F8E4EE /* WJImage.xcassets */,
+				7D0D50A2207DC9C700F8E4EE /* WJPhotos.storyboard */,
+				7D0D50A1207DC9C700F8E4EE /* WJAssetGridViewController.swift */,
+				7D0D50A3207DC9C700F8E4EE /* WJPhotosList.swift */,
+				7D0D509F207DC9C700F8E4EE /* WJPhotosTool.swift */,
+			);
+			path = wjImage;
+			sourceTree = "<group>";
+		};
 		7DA35EC8207B00E200E58429 = {
 			isa = PBXGroup;
 			children = (
@@ -60,15 +77,13 @@
 		7DA35ED3207B00E200E58429 /* WJPhotos */ = {
 			isa = PBXGroup;
 			children = (
-				7DA35ED4207B00E200E58429 /* AppDelegate.swift */,
-				7DA35ED6207B00E200E58429 /* ViewController.swift */,
-				7DA35EE6207B784900E58429 /* WJPhotosList.swift */,
-				7DA35EEA207B93B700E58429 /* WJPhotosTool.swift */,
-				7DA35EE8207B786300E58429 /* WJPhotos.storyboard */,
-				7DA35ED8207B00E200E58429 /* Main.storyboard */,
-				7DA35EDB207B00E400E58429 /* Assets.xcassets */,
-				7DA35EDD207B00E400E58429 /* LaunchScreen.storyboard */,
-				7DA35EE0207B00E400E58429 /* Info.plist */,
+				7D0D509E207DC96300F8E4EE /* wjImage */,
+				7D0D508E207DC93800F8E4EE /* AppDelegate.swift */,
+				7D0D508F207DC93800F8E4EE /* Assets.xcassets */,
+				7D0D5086207DC93800F8E4EE /* Info.plist */,
+				7D0D508D207DC93800F8E4EE /* LaunchScreen.storyboard */,
+				7D0D508C207DC93800F8E4EE /* Main.storyboard */,
+				7D0D508B207DC93800F8E4EE /* ViewController.swift */,
 			);
 			path = WJPhotos;
 			sourceTree = "<group>";
@@ -105,6 +120,7 @@
 				TargetAttributes = {
 					7DA35ED0207B00E200E58429 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0930;
 					};
 				};
 			};
@@ -131,10 +147,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DA35EE9207B786300E58429 /* WJPhotos.storyboard in Resources */,
-				7DA35EDF207B00E400E58429 /* LaunchScreen.storyboard in Resources */,
-				7DA35EDC207B00E400E58429 /* Assets.xcassets in Resources */,
-				7DA35EDA207B00E200E58429 /* Main.storyboard in Resources */,
+				7D0D50A9207DCA0900F8E4EE /* WJImage.xcassets in Resources */,
+				7D0D5099207DC93900F8E4EE /* Main.storyboard in Resources */,
+				7D0D509A207DC93900F8E4EE /* LaunchScreen.storyboard in Resources */,
+				7D0D50A6207DC9C700F8E4EE /* WJPhotos.storyboard in Resources */,
+				7D0D509C207DC93900F8E4EE /* Assets.xcassets in Resources */,
+				7D0D5093207DC93900F8E4EE /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,33 +163,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7DA35EE7207B784900E58429 /* WJPhotosList.swift in Sources */,
-				7DA35EEB207B93B700E58429 /* WJPhotosTool.swift in Sources */,
-				7DA35ED7207B00E200E58429 /* ViewController.swift in Sources */,
-				7DA35ED5207B00E200E58429 /* AppDelegate.swift in Sources */,
+				7D0D50A5207DC9C700F8E4EE /* WJAssetGridViewController.swift in Sources */,
+				7D0D509B207DC93900F8E4EE /* AppDelegate.swift in Sources */,
+				7D0D5098207DC93900F8E4EE /* ViewController.swift in Sources */,
+				7D0D50A7207DC9C700F8E4EE /* WJPhotosList.swift in Sources */,
+				7D0D50A4207DC9C700F8E4EE /* WJPhotosTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		7DA35ED8207B00E200E58429 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DA35ED9207B00E200E58429 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7DA35EDD207B00E400E58429 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7DA35EDE207B00E400E58429 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7DA35EE1207B00E400E58429 /* Debug */ = {
@@ -292,6 +292,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KCN8UWT8XC;
 				INFOPLIST_FILE = WJPhotos/Info.plist;
@@ -302,6 +303,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ulinix.WJPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -311,6 +314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KCN8UWT8XC;
 				INFOPLIST_FILE = WJPhotos/Info.plist;
@@ -321,6 +325,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ulinix.WJPhotos;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

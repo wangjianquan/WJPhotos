@@ -13,21 +13,47 @@ import PhotosUI
 class WJPhotosList: UITableViewController {
  
     lazy var photoTool = WJPhotosTool()
-    lazy var items: [WJImageAlbumItem] = []
+    lazy var all_Photos: [WJImageAlbumItem] = []
+    var user_Collections: [WJImageAlbumItem] = []
     var allPhotos: PHFetchResult<PHAsset>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
     
+    //相簿列表项集合
+    var items:[WJImageAlbumItem] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        items = photoTool.fetchAllSystemAblum()
-//        print(items.count)
-        allPhotos = photoTool.getAllSourceCollection()
-        print("allPhotos \(allPhotos.count)")
+        tableView.tableFooterView = UIView()
+        
+        let rightBarItem = UIBarButtonItem(title: "取消", style: .plain, target: self,
+                                           action:#selector(cancel) )
+        self.navigationItem.rightBarButtonItem = rightBarItem
+        
+        PHPhotoLibrary.requestAuthorization { (status) in
+            if status != .authorized {
+                return
+            }
+            self.items = self.photoTool.fetchAllSystemAblum()
+            self.items = self.photoTool.fetchAllUserCreatedAlbum()
+            self.items.sort(by: { (item1, item2) -> Bool in
+                return item1.fetchResult.count > item2.fetchResult.count
+            })
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
+
+        
+        print("allPhotos \(user_Collections.count)")
     }
     
-    
+    @objc fileprivate func cancel() {
+        self.dismiss(animated: true, completion: nil)
+    }
+
     
 
     override func didReceiveMemoryWarning() {
@@ -39,23 +65,26 @@ class WJPhotosList: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return items.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
-
+        let data = self.items[indexPath.row]
+        cell.textLabel?.text = data.title ?? ""
+        cell.detailTextLabel?.text = "(\(data.fetchResult.count)"
         return cell
     }
-    */
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
 
     /*
     // Override to support conditional editing of the table view.
