@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBAction func action(_ sender: UIButton) {
         
         
-        _ = presentImagePicker(maxSelected: 5, completeHandler: { (assets) in
+        _ = presentImagePicker(maxSelected: 3, completeHandler: { (assets) in
             print("共选择了\(assets.count)张图片，分别如下：")
             for asset in assets {
                 print(asset)

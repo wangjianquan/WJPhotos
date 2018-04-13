@@ -27,11 +27,21 @@ class WJAssetGridViewController: UICollectionViewController {
     fileprivate var thumbnailSize: CGSize!
     fileprivate var previousPreheatRect = CGRect.zero
 
+    lazy var selectedAssets: [PHAsset] = []
+    
     //每次最多可选择的照片数量
     var maxSelected:Int = Int.max
-    
     //照片选择完毕后的回调
     var completeHandler:((_ assets:[PHAsset])->())?
+    
+    //按钮的默认尺寸
+    let collectionViewDefaultFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 44)
+    
+    //完成按钮
+    lazy var completeButton: CompleteButton =  CompleteButton(frame: CGRect(x: 0, y: collectionViewDefaultFrame.height, width: screen_width, height: 44))
+    
+    
+    
     
     init(){
         let viewWidth = UIScreen.main.bounds.size.width
@@ -45,7 +55,7 @@ class WJAssetGridViewController: UICollectionViewController {
         layout.itemSize = itemSize
         layout.minimumInteritemSpacing = padding
         layout.minimumLineSpacing = padding
-
+        
 
         //从PHCachingImageManager请求的缩略图的大小。
         let scale = UIScreen.main.scale
@@ -56,20 +66,24 @@ class WJAssetGridViewController: UICollectionViewController {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.white
         resetCachedAssets()
-        
+        collectionView?.frame = collectionViewDefaultFrame
         collectionView?.backgroundColor = UIColor.white
         collectionView?.allowsMultipleSelection = true // 多选
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "取消", style: .plain, target: self, action: #selector(cancel))
         collectionView?.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         
-        print("\(fetchResult.count)")
+        completeButton.addTarget(target: self, action: #selector(finishSelect))
+        completeButton.isEnabled = false
+        completeButton.previewBtn.addTarget(self, action: #selector(previewButtonClick), for: .touchUpInside)
+        self.view.addSubview(completeButton)
         
         collectionView?.reloadData()
     }
@@ -80,7 +94,42 @@ class WJAssetGridViewController: UICollectionViewController {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
-
+    //MARK: -- "浏览"按钮事件
+    @objc func previewButtonClick()  {
+       pushControllWithType(0)
+    }
+    
+    //MARK: -- "完成"按钮事件
+    @objc func finishSelect() {
+        pushControllWithType()
+    }
+   
+    fileprivate func pushControllWithType(_ type: NSInteger? = nil ) {
+        //已选图片资源
+        if let indexPatchs = collectionView?.indexPathsForSelectedItems {
+            for index in indexPatchs {
+                selectedAssets.append(fetchResult[index.row])
+            }
+        }
+        if selectedAssets.count == 0 {
+            presentAlert()
+        }else{
+            
+            if type == 0 { //
+                print("图片浏览")
+            } else {
+                self.navigationController?.dismiss(animated: true, completion: {
+                    self.completeHandler!(self.selectedAssets)
+                })
+            }
+        }
+    }
+    
+    fileprivate func presentAlert() {
+        let alert = UIAlertController(title: "请选择照片", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "我知道了", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -188,7 +237,6 @@ extension WJAssetGridViewController {
             let count = selectedCount()
             
             if count > maxSelected {
-                collectionView.deselectItem(at: indexPath, animated: false)
                 //设置为不选中状态
                 collectionView.deselectItem(at: indexPath, animated: false)
                 //弹出提示
@@ -203,6 +251,10 @@ extension WJAssetGridViewController {
                 
             }else{
                 
+                completeButton.num = count
+                if count > 0 && !self.completeButton.isEnabled {
+                    completeButton.isEnabled = true
+                }
                  cell.playAnimate()
             }
             
@@ -214,10 +266,10 @@ extension WJAssetGridViewController {
             as? ImageCollectionViewCell{
             //获取选中的数量
             let count = self.selectedCount()
-//            completeButton.num = count
+            completeButton.num = count
             //改变完成按钮数字，并播放动画
             if count == 0{
-//                completeButton.isEnabled = false
+                completeButton.isEnabled = false
             }
             cell.playAnimate()
         }

@@ -13,8 +13,6 @@ import PhotosUI
 class WJPhotosList: UITableViewController {
  
     lazy var photoTool = WJPhotosTool()
-    lazy var all_Photos: [WJImageAlbumItem] = []
-    var user_Collections: [WJImageAlbumItem] = []
     var allPhotos: PHFetchResult<PHAsset>!
     var smartAlbums: PHFetchResult<PHAssetCollection>!
     var userCollections: PHFetchResult<PHCollection>!
@@ -48,7 +46,6 @@ class WJPhotosList: UITableViewController {
             
             DispatchQueue.main.async {
                 self.tableView.reloadData()
-                let layout = UICollectionViewFlowLayout()
                 let controll = WJAssetGridViewController()
                 controll.title = self.items.first?.title
                 controll.fetchResult = self.items.first?.fetchResult
