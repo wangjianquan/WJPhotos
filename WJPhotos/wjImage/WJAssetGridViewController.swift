@@ -28,7 +28,7 @@ class WJAssetGridViewController: UICollectionViewController {
     fileprivate var previousPreheatRect = CGRect.zero
 
     lazy var selectedAssets: [PHAsset] = []
-    
+
     //每次最多可选择的照片数量
     var maxSelected:Int = Int.max
     //照片选择完毕后的回调
@@ -56,12 +56,9 @@ class WJAssetGridViewController: UICollectionViewController {
         layout.minimumInteritemSpacing = padding
         layout.minimumLineSpacing = padding
         
-
         //从PHCachingImageManager请求的缩略图的大小。
         let scale = UIScreen.main.scale
         thumbnailSize = CGSize(width: itemSize.width * scale, height: itemSize.height * scale)
-        
-        
         super.init(collectionViewLayout: layout )
     }
     
@@ -117,6 +114,9 @@ class WJAssetGridViewController: UICollectionViewController {
             
             if type == 0 { //
                 print("图片浏览")
+                let controll = PhotoBrowseController()
+                controll.selectedAssets = selectedAssets
+                navigationController?.pushViewController(controll, animated: true)
             } else {
                 self.navigationController?.dismiss(animated: true, completion: {
                     self.completeHandler!(self.selectedAssets)
