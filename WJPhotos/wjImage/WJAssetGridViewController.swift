@@ -17,6 +17,7 @@ private extension UICollectionView {
     }
 }
 
+let safeBottom : CGFloat = (UIApplication.shared.statusBarFrame.height > 20 ? 34 : 0)
 
 class WJAssetGridViewController: UICollectionViewController {
 
@@ -34,8 +35,10 @@ class WJAssetGridViewController: UICollectionViewController {
     //照片选择完毕后的回调
     var completeHandler:((_ assets:[PHAsset])->())?
     
+    
+    
     //按钮的默认尺寸
-    let collectionViewDefaultFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 44)
+    let collectionViewDefaultFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 44 - safeBottom)
     
     //完成按钮
     lazy var completeButton: CompleteButton =  CompleteButton(frame: CGRect(x: 0, y: collectionViewDefaultFrame.height, width: screen_width, height: 44))

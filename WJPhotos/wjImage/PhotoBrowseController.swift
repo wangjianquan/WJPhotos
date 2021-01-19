@@ -16,6 +16,9 @@ class PhotoBrowseController: UICollectionViewController {
     var selectedAssets : [PHAsset] = []
     fileprivate let cachingImageManager = PHCachingImageManager()
     
+    let scale = UIScreen.main.scale
+    fileprivate var thumbnailSize: CGSize!
+
     //按钮的默认尺寸
     let collectionViewDefaultFrame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
     
@@ -28,6 +31,7 @@ class PhotoBrowseController: UICollectionViewController {
         super.init(collectionViewLayout: layout)
         
         layout.itemSize = (collectionView?.bounds.size)!
+        collectionView.bounces = false
         collectionView?.isPagingEnabled = true
         collectionView?.showsVerticalScrollIndicator = false
         collectionView?.showsHorizontalScrollIndicator = false
@@ -39,8 +43,8 @@ class PhotoBrowseController: UICollectionViewController {
     
     override func loadView() {
         super.loadView()
-        view.bounds.size.width += 20
-        
+//        view.bounds.size.width += 20
+        thumbnailSize = CGSize(width: view.bounds.size.width * scale, height: view.bounds.size.height * scale)
     }
     
     override func viewDidLoad() {
@@ -67,14 +71,19 @@ class PhotoBrowseController: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return selectedAssets.count
+        return self.selectedAssets.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoBrowseCell, for: indexPath) as! PhotoBrowseImageCell
     
-        let asset = selectedAssets[indexPath.row]
+        let asset = self.selectedAssets[indexPath.row]
         cell.representedAssetIdentifier = asset.localIdentifier
+        cachingImageManager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil) { (image, info) in
+            if cell.representedAssetIdentifier == asset.localIdentifier && image != nil{
+                cell.thumbnailImage = image
+            }
+        }
         
         return cell
     }
@@ -86,7 +95,7 @@ fileprivate let photoBrowseCell = "PhotoBrowseImageCell"
 class PhotoBrowseImageCell: UICollectionViewCell {
     //显示缩略图
     lazy var  imageView: UIImageView = {
-        let imageview = UIImageView(frame: contentView.bounds)
+        let imageview = UIImageView(frame: .zero)
         imageview.clipsToBounds = true
         imageview.contentMode = .scaleAspectFill
         return imageview
@@ -111,7 +120,12 @@ class PhotoBrowseImageCell: UICollectionViewCell {
     }
     
     fileprivate func setUpUI() {
+        self.backgroundColor = UIColor.init(white: 0, alpha: 1)
         self.addSubview(imageView)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        imageView.frame = CGRect(x: 10, y: 0, width: contentView.frame.size.width - 20, height: contentView.frame.size.height)
     }
 }
 

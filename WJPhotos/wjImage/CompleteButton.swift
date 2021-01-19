@@ -115,7 +115,7 @@ class CompleteButton: UIView {
         //从小变大，且有弹性效果
         self.numLabel.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5,
-                       initialSpringVelocity: 0.5, options: UIViewAnimationOptions(),
+                       initialSpringVelocity: 0.5, options: UIView.AnimationOptions(),
                        animations: {
                         self.numLabel.transform = CGAffineTransform.identity
         }, completion: nil)

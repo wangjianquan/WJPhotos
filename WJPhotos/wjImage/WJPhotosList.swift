@@ -85,7 +85,7 @@ class WJPhotosList: UITableViewController {
         //获取选中的相簿信息
         let fetchResult = self.items[indexPath.row].fetchResult
         
-        let layout = UICollectionViewFlowLayout()
+        _ = UICollectionViewFlowLayout()
         let controll = WJAssetGridViewController()
         
         controll.fetchResult = fetchResult
@@ -107,6 +107,7 @@ extension UIViewController {
         vc.maxSelected = maxSelected
         // 将图片选择视图控制器外添加个导航控制器，并显示
         let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
         self.present(nav, animated: true, completion: nil)
         return vc
     }
